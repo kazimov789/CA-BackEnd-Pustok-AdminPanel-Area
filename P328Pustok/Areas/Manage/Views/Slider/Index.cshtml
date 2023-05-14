@@ -1,0 +1,47 @@
+﻿@model List<Slider>
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1>Slider</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Desc</th>
+                    <th scope="col">ButtonDesc</th>
+                    <th scope="col">ButtonUrl</th>
+                    <th scope="col">ImgUrl</th>
+                    <th scope="col">ImgDisplay</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    order++;
+                    <tr>
+                        <th scope="row">@order</th>
+                        <td>@item.Name</td>
+                        <td>@item.Title</td>
+                        <td>@item.Desc</td>
+                        <td>@item.ButtonDesc</td>
+                        <td>@item.ButtonUrl</td>
+                        <td>@item.ImgUrl</td>
+                        <td><img src="/image/bg-images/@item.ImgUrl" class="w-100"></td>
+                        <td>
+                            <a class="btn btn-warning">Edit</a>
+                            <a class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
